@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchViewController: UIViewController {
 
@@ -18,7 +19,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultCollectionView.register(ResultCell.self, forCellWithReuseIdentifier: "ResultCell")
     }
     
 }
@@ -37,19 +37,26 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         
         let movie = movies[indexPath.item]
-//        cell.movieThumbnail.image =
-        
-        cell.backgroundColor = .red
+        let url = URL(string: movie.thumbnailPath)!
+        cell.movieThumbnail.kf.setImage(with: url)
         return cell
     }
 }
 
 class ResultCell: UICollectionViewCell {
     @IBOutlet var movieThumbnail: UIImageView!
-    
 }
 
 extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        
+        let sb = UIStoryboard(name: "Player", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        
+    }
     
 }
 
@@ -74,8 +81,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // 검색 시작
-        
-        
         
         // 키보드 내려가게 처리
         dismissKeyboard()
