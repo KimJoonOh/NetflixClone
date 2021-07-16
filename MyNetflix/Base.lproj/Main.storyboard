@@ -163,21 +163,40 @@
                                 <rect key="frame" x="0.0" y="95" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fyv-pb-Fd2">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="88" height="91"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ja6-bZ-8u4">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ResultCell" id="Ja6-bZ-8u4" customClass="ResultCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6Tn-SW-PxA">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="88" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCa-v4-poP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="91"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gCa-v4-poP" secondAttribute="trailing" id="4e5-hD-KyJ"/>
+                                                <constraint firstItem="gCa-v4-poP" firstAttribute="leading" secondItem="6Tn-SW-PxA" secondAttribute="leading" id="VJb-Xq-75T"/>
+                                                <constraint firstAttribute="bottom" secondItem="gCa-v4-poP" secondAttribute="bottom" id="kD4-W7-TbZ"/>
+                                                <constraint firstItem="gCa-v4-poP" firstAttribute="top" secondItem="6Tn-SW-PxA" secondAttribute="top" id="uli-RY-GhK"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="88" height="91"/>
+                                        <connections>
+                                            <outlet property="movieThumbnail" destination="gCa-v4-poP" id="C98-qp-S54"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lf4-yK-Bdw" id="czE-pm-Hu5"/>
+                                    <outlet property="delegate" destination="Lf4-yK-Bdw" id="drg-Tv-nn0"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n9k-jk-E7Q"/>
