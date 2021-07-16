@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayerViewController: UIViewController {
-
+    @IBOutlet var playerView: UIView!
+    @IBOutlet var controlView: UIView!
+    @IBOutlet var playButton: UIButton!
+    
+    let player = AVPlayer()
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscapeRight
     }
@@ -18,15 +24,20 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func togglePlaybutton(_ sender: Any) {
+        playButton.isSelected = !playButton.isSelected
+    }
+    
+    
 
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
 }
 
-//extension AVPlayer {
-//    var isPlaying: Bool {
-//        guard self.currentItem != nil else { return false }
-//        return self.rate != 0
-//    }
-//}
+extension AVPlayer {
+    var isPlaying: Bool {
+        guard self.currentItem != nil else { return false }
+        return self.rate != 0
+    }
+}

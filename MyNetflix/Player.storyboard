@@ -16,25 +16,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0Q-4y-bTn">
-                                <rect key="frame" x="706" y="42" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="CXF-dh-dQv"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-BM-ugN" userLabel="Player View">
+                                <rect key="frame" x="44" y="0.0" width="724" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIE-74-9xd" userLabel="Control View">
+                                <rect key="frame" x="44" y="0.0" width="724" height="375"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B53-cK-zuX">
+                                        <rect key="frame" x="342" y="167.66666666666666" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="czN-hh-sEk"/>
+                                            <constraint firstAttribute="width" constant="40" id="mjm-VU-Ydr"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="play.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="togglePlaybutton:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="ses-uK-KPe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbP-BT-d4Z">
+                                        <rect key="frame" x="664" y="16" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="KhW-qC-R53"/>
+                                            <constraint firstAttribute="height" constant="40" id="PsK-NS-Xgy"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bbP-BT-d4Z" firstAttribute="top" secondItem="aIE-74-9xd" secondAttribute="top" constant="16" id="GJH-4K-txf"/>
+                                    <constraint firstItem="B53-cK-zuX" firstAttribute="centerX" secondItem="aIE-74-9xd" secondAttribute="centerX" id="T2v-aU-0od"/>
+                                    <constraint firstAttribute="trailing" secondItem="bbP-BT-d4Z" secondAttribute="trailing" constant="20" id="cZI-Ys-HNN"/>
+                                    <constraint firstItem="B53-cK-zuX" firstAttribute="centerY" secondItem="aIE-74-9xd" secondAttribute="centerY" id="kZ0-M8-De7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Du5-Th-wYi"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="T0Q-4y-bTn" firstAttribute="leading" secondItem="Du5-Th-wYi" secondAttribute="leading" constant="662" id="6M9-Be-Rbu"/>
-                            <constraint firstItem="T0Q-4y-bTn" firstAttribute="top" secondItem="Du5-Th-wYi" secondAttribute="top" constant="42" id="vID-mj-x4M"/>
+                            <constraint firstItem="aIE-74-9xd" firstAttribute="trailing" secondItem="dcv-BM-ugN" secondAttribute="trailing" id="2MK-7U-ba4"/>
+                            <constraint firstItem="aIE-74-9xd" firstAttribute="leading" secondItem="dcv-BM-ugN" secondAttribute="leading" id="7Ay-sC-NIf"/>
+                            <constraint firstItem="aIE-74-9xd" firstAttribute="bottom" secondItem="dcv-BM-ugN" secondAttribute="bottom" id="ORt-Cz-UCQ"/>
+                            <constraint firstItem="dcv-BM-ugN" firstAttribute="top" secondItem="Dq2-Lt-FjU" secondAttribute="top" id="SKB-Bt-OJo"/>
+                            <constraint firstItem="aIE-74-9xd" firstAttribute="top" secondItem="dcv-BM-ugN" secondAttribute="top" id="aXa-r9-ccL"/>
+                            <constraint firstAttribute="bottom" secondItem="dcv-BM-ugN" secondAttribute="bottom" id="gW1-4n-vTB"/>
+                            <constraint firstItem="dcv-BM-ugN" firstAttribute="leading" secondItem="Du5-Th-wYi" secondAttribute="leading" id="gav-vb-xaA"/>
+                            <constraint firstItem="Du5-Th-wYi" firstAttribute="trailing" secondItem="dcv-BM-ugN" secondAttribute="trailing" id="teQ-2b-IWT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="controlView" destination="aIE-74-9xd" id="2oV-3e-gn6"/>
+                        <outlet property="playButton" destination="B53-cK-zuX" id="0e4-7g-Uet"/>
+                        <outlet property="playerView" destination="dcv-BM-ugN" id="r0z-P2-gRO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Du-VI-KnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1.4778325123152709" y="2.3999999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
