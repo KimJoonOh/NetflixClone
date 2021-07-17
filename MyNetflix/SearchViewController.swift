@@ -137,14 +137,14 @@ class SearchAPI {
                     }
                     print(JSON(resultData)["results"].count)
                     var movies: [Movie] = []
-                    for i in 0 ..< (JSON(resultData)["results"].count) {
-                        let json = JSON(resultData)["results"][i]
+                    for json in JSON(resultData)["results"].arrayValue {
+                        
                         let movie = Movie(title: json["trackName"].stringValue,
                                            director: json["artistName"].stringValue,
                                            thumb: json["artworkUrl100"].stringValue,
                                            preview: json["previewUrl"].stringValue)
-                        
                         movies.append(movie)
+                        
                     }
                     print(movies)
                     completion(movies)
