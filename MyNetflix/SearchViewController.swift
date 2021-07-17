@@ -148,24 +148,10 @@ class SearchAPI {
                     }
                     print(movies)
                     completion(movies)
-//                    let json = JSON(resultData)["results"][0]
-//                    let movies = Movie(title: json["result"].stringValue,
-//                                       director: json["artistName"].stringValue,
-//                                       thumb: json["artworkUrl100"].stringValue,
-//                                       preview: json["previewUrl"].stringValue)
-//
-//                    completion(movies)
-//                    print(json)
-//                    print("@@@@@@@@@@@@@@@@@")
-//                    print(json["result"].stringValue)
-//                    print(json["artistName"].stringValue)
-//                    print(json["artworkUrl100"].stringValue)
-//                    print(json["previewUrl"].stringValue)
-                    
+
 //                    let movies = SearchAPI.parseMovies(resultData)
-//                    print(movies)
 //                    completion(movies)
-//                    completion(movies)
+
                 
                 case .failure(let error):
                     completion([])
