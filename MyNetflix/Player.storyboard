@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-BM-ugN" userLabel="Player View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-BM-ugN" userLabel="Player View" customClass="PlayerView" customModule="MyNetflix" customModuleProvider="target">
                                 <rect key="frame" x="44" y="0.0" width="724" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,8 +34,11 @@
                                         <state key="normal" image="play.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
+                                        <state key="selected" image="pause.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
                                         <connections>
-                                            <action selector="togglePlaybutton:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="ses-uK-KPe"/>
+                                            <action selector="togglePlaybutton:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="YJG-GL-gOh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbP-BT-d4Z">
@@ -48,6 +51,9 @@
                                         <state key="normal" image="xmark" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                         </state>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="xn8-CB-u0J"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,9 +79,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="controlView" destination="aIE-74-9xd" id="2oV-3e-gn6"/>
-                        <outlet property="playButton" destination="B53-cK-zuX" id="0e4-7g-Uet"/>
-                        <outlet property="playerView" destination="dcv-BM-ugN" id="r0z-P2-gRO"/>
+                        <outlet property="controlView" destination="aIE-74-9xd" id="9eg-UV-OHT"/>
+                        <outlet property="playButton" destination="B53-cK-zuX" id="Rij-Dp-1Zb"/>
+                        <outlet property="playerView" destination="dcv-BM-ugN" id="bQN-eh-DbW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Du-VI-KnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,6 +90,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
