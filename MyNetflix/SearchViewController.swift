@@ -9,6 +9,8 @@
 import UIKit
 import Kingfisher
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
@@ -113,40 +115,103 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 class SearchAPI {
+    
     static func search(_ term:String, completion: @escaping ([Movie]) -> Void) {
-        let session = URLSession(configuration: .default)
-        var urlComponent = URLComponents(string: "https://itunes.apple.com/search?")!
-        let mediaQuery = URLQueryItem(name: "media", value: "movie")
-        let entityQuery = URLQueryItem(name: "entity", value: "movie")
-        let termQuery = URLQueryItem(name: "term", value: term)
-        urlComponent.queryItems?.append(mediaQuery)
-        urlComponent.queryItems?.append(entityQuery)
-        urlComponent.queryItems?.append(termQuery)
-        
-        let requestURL = urlComponent.url!
-        let dataTask = session.dataTask(with: requestURL) { data, response, error in
-            let successRange = 200..<300
-            
-            guard error == nil, let statusCode = (response as? HTTPURLResponse)?.statusCode, successRange.contains(statusCode) else {
-                completion([])
-                return
+        let url = "https://itunes.apple.com/search?"
+        let parameters: Parameters = [
+            "media" : "movie",
+            "entity" : "movie",
+            "term" : term
+        ]
+        AF.request(url,
+                   method: .get,
+                   parameters: parameters,
+                   encoding: URLEncoding.queryString).validate(statusCode: 200..<300)
+            .responseJSON { response in
+                
+                switch response.result {
+                case .success:
+                    guard let resultData = response.data else {
+                        completion([])
+                        return
+                    }
+                    print(JSON(resultData)["results"].count)
+                    var movies: [Movie] = []
+                    for i in 0 ..< (JSON(resultData)["results"].count) {
+                        let json = JSON(resultData)["results"][i]
+                        let movie = Movie(title: json["trackName"].stringValue,
+                                           director: json["artistName"].stringValue,
+                                           thumb: json["artworkUrl100"].stringValue,
+                                           preview: json["previewUrl"].stringValue)
+                        
+                        movies.append(movie)
+                    }
+                    print(movies)
+                    completion(movies)
+//                    let json = JSON(resultData)["results"][0]
+//                    let movies = Movie(title: json["result"].stringValue,
+//                                       director: json["artistName"].stringValue,
+//                                       thumb: json["artworkUrl100"].stringValue,
+//                                       preview: json["previewUrl"].stringValue)
+//
+//                    completion(movies)
+//                    print(json)
+//                    print("@@@@@@@@@@@@@@@@@")
+//                    print(json["result"].stringValue)
+//                    print(json["artistName"].stringValue)
+//                    print(json["artworkUrl100"].stringValue)
+//                    print(json["previewUrl"].stringValue)
+                    
+//                    let movies = SearchAPI.parseMovies(resultData)
+//                    print(movies)
+//                    completion(movies)
+//                    completion(movies)
+                
+                case .failure(let error):
+                    completion([])
+                    return
+                }
             }
+
             
-            guard let resultData = data else {
-                completion([])
-                return
-            }
-            
-            // data -> [Movie]
-            let string = String(data: resultData, encoding: .utf8)
-            let movies = SearchAPI.parseMovies(resultData)
-            completion(movies)
-//            print("--> result: \(string)")
-            
-//            completion([Movie])
         }
-        dataTask.resume()
-    }
+    
+    
+//    static func search(_ term:String, completion: @escaping ([Movie]) -> Void) {
+//        let session = URLSession(configuration: .default)
+//        var urlComponent = URLComponents(string: "https://itunes.apple.com/search?")!
+//        let mediaQuery = URLQueryItem(name: "media", value: "movie")
+//        let entityQuery = URLQueryItem(name: "entity", value: "movie")
+//        let termQuery = URLQueryItem(name: "term", value: term)
+//        urlComponent.queryItems?.append(mediaQuery)
+//        urlComponent.queryItems?.append(entityQuery)
+//        urlComponent.queryItems?.append(termQuery)
+//
+//        let requestURL = urlComponent.url!
+//        let dataTask = session.dataTask(with: requestURL) { data, response, error in
+//            let successRange = 200..<300
+//
+//            guard error == nil, let statusCode = (response as? HTTPURLResponse)?.statusCode, successRange.contains(statusCode) else {
+//                completion([])
+//                return
+//            }
+//
+//            guard let resultData = data else {
+//                completion([])
+//                return
+//            }
+//
+//            // data -> [Movie]
+//            let string = String(data: resultData, encoding: .utf8)
+//            let movies = SearchAPI.parseMovies(resultData)
+//            completion(movies)
+////            print("--> result: \(string)")
+//
+////            completion([Movie])
+//        }
+//        dataTask.resume()
+//    }
+//    static func parseMovies(_ data: )
     
     static func parseMovies(_ data: Data) -> [Movie] {
         let decoder = JSONDecoder()
@@ -183,6 +248,13 @@ struct Movie: Codable {
         case director = "artistName"
         case thumbnailPath = "artworkUrl100"
         case previewURL = "previewUrl"
+    }
+    
+    init(title: String, director: String, thumb: String, preview: String) {
+        self.title = title
+        self.director = director
+        self.thumbnailPath = thumb
+        self.previewURL = preview
     }
     
     

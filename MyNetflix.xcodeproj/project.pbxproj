@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		769E08E626A1CB020062E243 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 769E08E526A1CB020062E243 /* Kingfisher */; };
+		5599794B96BD99C4B2183DC3 /* Pods_MyNetflix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF94F94F3CD9F77929A38E1C /* Pods_MyNetflix.framework */; };
+		769E08E626A1CB020062E243 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 769E08E526A1CB020062E243 /* SwiftPackageProductDependency */; };
 		9409834F243468AA00FD1040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409834E243468AA00FD1040 /* AppDelegate.swift */; };
 		94098351243468AA00FD1040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94098350243468AA00FD1040 /* SceneDelegate.swift */; };
 		94098353243468AA00FD1040 /* AppTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94098352243468AA00FD1040 /* AppTabbarController.swift */; };
@@ -50,6 +51,9 @@
 		94DFD7522435CED7009687ED /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		94DFD7542435DA88009687ED /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		94DFD7802436F11B009687ED /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		B02179EECF9DB6749A1E1D45 /* Pods-MyNetflix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNetflix.debug.xcconfig"; path = "Target Support Files/Pods-MyNetflix/Pods-MyNetflix.debug.xcconfig"; sourceTree = "<group>"; };
+		CF94F94F3CD9F77929A38E1C /* Pods_MyNetflix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNetflix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE2423F9C145CB628AD75C04 /* Pods-MyNetflix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNetflix.release.xcconfig"; path = "Target Support Files/Pods-MyNetflix/Pods-MyNetflix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				769E08E626A1CB020062E243 /* Kingfisher in Frameworks */,
+				769E08E626A1CB020062E243 /* BuildFile in Frameworks */,
+				5599794B96BD99C4B2183DC3 /* Pods_MyNetflix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,8 @@
 			children = (
 				9409834D243468AA00FD1040 /* MyNetflix */,
 				9409834C243468AA00FD1040 /* Products */,
+				D0A518F5FBACC5A95E242A48 /* Pods */,
+				CBE76E00D4290B1C125B709A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +107,24 @@
 			path = MyNetflix;
 			sourceTree = "<group>";
 		};
+		CBE76E00D4290B1C125B709A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF94F94F3CD9F77929A38E1C /* Pods_MyNetflix.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0A518F5FBACC5A95E242A48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B02179EECF9DB6749A1E1D45 /* Pods-MyNetflix.debug.xcconfig */,
+				DE2423F9C145CB628AD75C04 /* Pods-MyNetflix.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,10 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9409835F243468AE00FD1040 /* Build configuration list for PBXNativeTarget "MyNetflix" */;
 			buildPhases = (
+				D3531D133B17BA08CCF4D678 /* [CP] Check Pods Manifest.lock */,
 				94098347243468AA00FD1040 /* Sources */,
 				94098348243468AA00FD1040 /* Frameworks */,
 				94098349243468AA00FD1040 /* Resources */,
 				94DFD77F2436E2DE009687ED /* Embed Frameworks */,
+				FB2C1BADEFB78687E7E09A43 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -118,7 +145,7 @@
 			);
 			name = MyNetflix;
 			packageProductDependencies = (
-				769E08E526A1CB020062E243 /* Kingfisher */,
+				769E08E526A1CB020062E243 /* SwiftPackageProductDependency */,
 			);
 			productName = MyNetflix;
 			productReference = 9409834B243468AA00FD1040 /* MyNetflix.app */;
@@ -149,7 +176,7 @@
 			);
 			mainGroup = 94098342243468AA00FD1040;
 			packageReferences = (
-				769E08E426A1CB020062E243 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				769E08E426A1CB020062E243 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 9409834C243468AA00FD1040 /* Products */;
 			projectDirPath = "";
@@ -173,6 +200,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3531D133B17BA08CCF4D678 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyNetflix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB2C1BADEFB78687E7E09A43 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyNetflix/Pods-MyNetflix-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyNetflix/Pods-MyNetflix-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyNetflix/Pods-MyNetflix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94098347243468AA00FD1040 /* Sources */ = {
@@ -328,6 +397,7 @@
 		};
 		94098360243468AE00FD1040 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B02179EECF9DB6749A1E1D45 /* Pods-MyNetflix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -346,6 +416,7 @@
 		};
 		94098361243468AE00FD1040 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE2423F9C145CB628AD75C04 /* Pods-MyNetflix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -386,7 +457,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		769E08E426A1CB020062E243 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		769E08E426A1CB020062E243 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -397,9 +468,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		769E08E526A1CB020062E243 /* Kingfisher */ = {
+		769E08E526A1CB020062E243 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 769E08E426A1CB020062E243 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 769E08E426A1CB020062E243 /* RemoteSwiftPackageReference */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
